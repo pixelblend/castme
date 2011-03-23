@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+<channel>
+  <title>Castme</title>
+  <language>en-uk</language>
+  <copyright></copyright>
+<% @shows.each do |show| %> 
+<item>
+  <title><%= show.name %></title>
+  <enclosure url="<%= request.url + show.url %>" type="audio/mpeg" />
+  <guid><%= request.url + show.url %></guid>
+  <pubDate><%= show.date.rfc2822 %></pubDate>
+  <description>
+<![CDATA[
+<%= show.description %>
+]]>
+  </description>
+</item>
+<% end %>
+</channel>
+</rss>
